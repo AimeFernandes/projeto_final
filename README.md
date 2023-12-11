@@ -5,4 +5,6 @@
 Integrantes:
 Aimê Santos Fernandes Azevedo - 20201214010017
 Clarisse Karolina Castro de Souza - 20201214010003
+Iran Ferreira dos Santos - 20201214010013
 Kamily Inêz da Silva - 20201214010001
+
