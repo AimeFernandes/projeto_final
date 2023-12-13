@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Login e Cadastro</title>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h2>Login</h2>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" />
+
+        <button onclick="enviar('logar')">Login</button>
+        <button onclick="enviar('cadastrar')">Cadastrar-se</button>
+      </div>
+    </div>
+    <div class="alerta" id="alerta">
+      <div class="card-container">
+        <div id="alert-text">Alerta!</div>
+        <div class="loading-bar">
+          <div class="progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./main.js"></script>
+</html>
