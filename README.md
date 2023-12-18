@@ -10,8 +10,7 @@ Kamily Inêz da Silva - 20201214010001
 
 
 
-#Definição da Arquitetura, Linguagem
-de Programação, Ambiente de Desenvolvimento, SGBD, etc.
+DEFINIÇÃO DA ARQUITETURA, LINGUAGEM DE PROGRAMAÇÃO, AMBIENTE DE DESENVOLVIMENTO, SGBD, ETC.
 - Definição da Arquitetura: MVC - Model, View, Controller
 - Linguagem de Programação: Javascript, NodeJS, HTML, Bootstrap
 - Ambiente de Desenvolvimento: VScode Studio
