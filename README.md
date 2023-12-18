@@ -8,3 +8,12 @@ Clarisse Karolina Castro de Souza - 20201214010003
 Iran Ferreira dos Santos - 20201214010013
 Kamily Inêz da Silva - 20201214010001
 
+
+
+#Definição da Arquitetura, Linguagem
+de Programação, Ambiente de Desenvolvimento, SGBD, etc.
+- Definição da Arquitetura: MVC - Model, View, Controller
+- Linguagem de Programação: Javascript, NodeJS, HTML, Bootstrap
+- Ambiente de Desenvolvimento: VScode Studio
+- SGBD: pgAdmin 4 - PostgresSQL
+- Sistema Operacional: Windows 10
