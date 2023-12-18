@@ -12,7 +12,7 @@ INTEGRANTES:
 
 
 
-DEFINIÇÃO DA ARQUITETURA, LINGUAGEM DE PROGRAMAÇÃO, AMBIENTE DE DESENVOLVIMENTO, SGBD, ETC.:
+<h2>DEFINIÇÃO DA ARQUITETURA, LINGUAGEM DE PROGRAMAÇÃO, AMBIENTE DE DESENVOLVIMENTO, SGBD, ETC.:<h2/>
 - Definição da Arquitetura: MVC - Model, View, Controller
 - Linguagem de Programação: Javascript, NodeJS, HTML, Bootstrap
 - Ambiente de Desenvolvimento: VScode Studio
