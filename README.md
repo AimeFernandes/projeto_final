@@ -69,5 +69,14 @@
   para cadastrar, alterar informações sobre os produtos ou excluí-los. 
   </p>
   
-<h2>Banco de Dados</h2>
-  
+<h2>Projeto de Banco de Dados</h2>
+
+  <p> 
+    O sistema é composto por duas entidades que se relacionam: Usuário e Peças.
+A entidade-mãe "Usuário" possui duas entidades filhas "Funcionário" e "Administrador."
+A entidade "Administrador" possui, além dos atributos da sua entidade-mãe, o atributo PermissãoDeAlterações, que lhe permite adicionar novas peças, editá-las e deletá-las. 
+A entidade "Funcionário" possui, além dos atributos da sua entidade-mãe, o atributo PermissãoDeBaixa, que lhe permite apenas dar baixa na peça que foi vendidada, não podendo realizar as alterações que são permitidas ao usuário Administrador.
+De modo geral, ambos podem vizualizar e pesquisar as peças disponíveis. No entando, quanto ao relacionamento entre as entidades, que se referem a manipulação do banco de dados, o usuário "Administrador" pode realizar alterações como editar, adicionar e deletar peças, enquanto que o usuário "Funcionário" apenas decresce o número da quantidade de peças quando realiza uma venda.
+  </p>
+  <img src="[https://www.notion.so/Diagrama-Entidade-Relacionamento-c5e27bcab2704b1d85d42169c645370c?pvs=4#7b1544d649b9483d83026627b345ed07](https://lucid.app/lucidchart/d82d4d7b-e9c7-4796-9e91-78289acb11cd/edit?view_items=MycW~UzDjtE1&invitationId=inv_bb5b1a7c-8a5c-4520-b282-617e6026071b)https://lucid.app/lucidchart/d82d4d7b-e9c7-4796-9e91-78289acb11cd/edit?view_items=MycW~UzDjtE1&invitationId=inv_bb5b1a7c-8a5c-4520-b282-617e6026071b"
+  </img>
