@@ -10,10 +10,10 @@
 - Kamily Inêz da Silva - 20201214010001</br>
 
 <h2>Definições do Sistema</h2>
-- Definição da Arquitetura: MVC - Model, View, Controller
-- Linguagem de Programação: Javascript, NodeJS, HTML, Bootstrap
-- Ambiente de Desenvolvimento: VScode Studio
-- SGBD: pgAdmin 4 - PostgresSQL
-- Sistema Operacional: Windows 10
+**Definição da Arquitetura:** MVC - Model, View, Controller</br>
+**Linguagem de Programação:** Javascript, NodeJS, HTML, Bootstrap</br>
+**Ambiente de Desenvolvimento:** VScode Studio</br>
+**SGBD:** pgAdmin 4 - PostgresSQL</br>
+**Sistema Operacional:** Windows 10****
 
 <h2>Requisitos de Software</h2>
