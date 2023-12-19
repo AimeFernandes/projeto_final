@@ -18,3 +18,6 @@
 **Sistema Operacional:** Windows 10
 
 <h2>Requisitos de Software</h2>
+
+  <h3>Requisitos Funcionais</h3>
+  
