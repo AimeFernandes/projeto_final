@@ -85,7 +85,7 @@
 
 **Código SQL do Modelo Físico** 
 
-```ruby
+```
 CREATE TABLE Usuario (
     id_usuario SERIAL PRIMARY KEY,
     email VARCHAR(50) NOT NULL,
@@ -112,5 +112,4 @@ CREATE TABLE Funcionario (
     id_usuario INT REFERENCES Usuario(id_usuario),
     permissaoDeBaixa BOOLEAN
 );</br>
-
 ```
