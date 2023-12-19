@@ -3,7 +3,7 @@
   Nesse software será possível fazer o controle de mercadorias(entrada e saída), excluir produtos, fazer devidas alterações quanto as características do produto, nome  e quantidade. Colocando assim, o senhor Alexsandro conseguirá evitar gastos desnecessários com produtos, a perca de artigos por falta de controle das quantidades e conseguirá gerenciar de forma virtual todos os produtos de sua loja. Trazendo eficiência para seu trabalho e agilidade, além da economia do tempo e recursos da AC Eletropeças.
 
 
-**Integrantes**
+<h5>**Integrantes**</h5>
 - Aimê Santos Fernandes Azevedo - 20201214010017</br>
 - Clarisse Karolina Castro de Souza - 20201214010003</br>
 - Iran Ferreira dos Santos - 20201214010013</br>
