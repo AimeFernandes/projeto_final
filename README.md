@@ -14,6 +14,6 @@
 **Linguagem de Programação:** Javascript, NodeJS, HTML, Bootstrap</br>
 **Ambiente de Desenvolvimento:** VScode Studio</br>
 **SGBD:** pgAdmin 4 - PostgresSQL</br>
-**Sistema Operacional:** Windows 10****
+**Sistema Operacional:** Windows 10
 
 <h2>Requisitos de Software</h2>
