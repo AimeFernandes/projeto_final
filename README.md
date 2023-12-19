@@ -77,7 +77,5 @@
 - A entidade "Administrador" possui, além dos atributos da sua entidade-mãe, o atributo PermissãoDeAlterações, que lhe permite adicionar novas peças, editá-las e deletá-las. </br>
 - A entidade "Funcionário" possui, além dos atributos da sua entidade-mãe, o atributo PermissãoDeBaixa, que lhe permite apenas dar baixa na peça que foi vendidada, não podendo realizar as alterações que são permitidas ao usuário Administrador. </br>
 - De modo geral, ambos podem vizualizar e pesquisar as peças disponíveis. No entando, quanto ao relacionamento entre as entidades, que se rreferem a manipulação do banco de dados, o usuário "Administrador" pode realizar alterações como editar, adicionar e deletar peças, enquanto que o usuário "Funcionário" apenas decresce o número da quantidade de peças quando realiza uma venda. </br>
-  
-  ![](https://lucid.app/lucidchart/d82d4d7b-e9c7-4796-9e91-78289acb11cd/edit?view_items=MycW~UzDjtE1&invitationId=inv_bb5b1a7c-8a5c-4520-b282-617e6026071b)
   </p>
-  
+  <img src="https://github.com/AimeFernandes/projeto_final/blob/main/Projeto%20de%20Banco%20de%20Dados.png">
