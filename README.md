@@ -10,6 +10,7 @@
 - Kamily Inêz da Silva - 20201214010001</br>
 
 <h2>Definições do Sistema</h2>
+
 **Definição da Arquitetura:** MVC - Model, View, Controller</br>
 **Linguagem de Programação:** Javascript, NodeJS, HTML, Bootstrap</br>
 **Ambiente de Desenvolvimento:** VScode Studio</br>
