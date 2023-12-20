@@ -84,31 +84,31 @@
 
   <h3>Código SQL do Modelo Físico</h3>
 
-```
-CREATE TABLE Usuario (
-    id_usuario SERIAL PRIMARY KEY,
-    email VARCHAR(50) NOT NULL,
-    password VARCHAR(50) NOT NULL
-); </br>
-
-
-CREATE TABLE Pecas (
-    id_peca SERIAL PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL,
-    quantidade INT NOT NULL,
-    preco DECIMAL(10,2) NOT NULL,
-    descricao TEXT
-); </br>
-
-CREATE TABLE Administrador (
-    id_administrador SERIAL PRIMARY KEY,
-    id_usuario INT REFERENCES Usuario(id_usuario),
-    permissaoDeAlteracoes BOOLEAN
-);</br>
-
-CREATE TABLE Funcionario (
-    id_funcionario SERIAL PRIMARY KEY,
-    id_usuario INT REFERENCES Usuario(id_usuario),
-    permissaoDeBaixa BOOLEAN
-);</br>
-```
+  ```
+  CREATE TABLE Usuario (
+      id_usuario SERIAL PRIMARY KEY,
+      email VARCHAR(50) NOT NULL,
+      password VARCHAR(50) NOT NULL
+  );
+  
+  
+  CREATE TABLE Pecas (
+      id_peca SERIAL PRIMARY KEY,
+      nome VARCHAR(50) NOT NULL,
+      quantidade INT NOT NULL,
+      preco DECIMAL(10,2) NOT NULL,
+      descricao TEXT
+  ); 
+  
+  CREATE TABLE Administrador (
+      id_administrador SERIAL PRIMARY KEY,
+      id_usuario INT REFERENCES Usuario(id_usuario),
+      permissaoDeAlteracoes BOOLEAN
+  );
+  
+  CREATE TABLE Funcionario (
+      id_funcionario SERIAL PRIMARY KEY,
+      id_usuario INT REFERENCES Usuario(id_usuario),
+      permissaoDeBaixa BOOLEAN
+  );
+  ```
