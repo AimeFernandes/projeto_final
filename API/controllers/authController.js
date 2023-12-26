@@ -1,21 +1,21 @@
 const jwt = require('jsonwebtoken');
 const authModel = require('../models/authModel.js');
 
-class authController {
+class AuthController {
   async logar(req, res) {
-    const { email, senha } = req.body;
+    const { email, password } = req.body;
     if (!email) {
       return res
         .status(400)
         .send({ login: false, message: "Digite seu email" });
     }
-    if (!senha) {
+    if (!password) {
       return res
         .status(400)
         .send({ login: false, message: "Digite sua senha" });
     }
     try {
-      const usuario = await authModel.logar(email, senha);
+      const usuario = await authModel.logar(email, password);
       if (usuario.length == 0) {
         return res
           .status(404)
@@ -40,4 +40,4 @@ class authController {
   }
 }
 
-module.exports = new authController();
+module.exports = new AuthController();
