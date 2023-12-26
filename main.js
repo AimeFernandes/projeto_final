@@ -3,7 +3,7 @@ async function enviar(acao) {
   const email = document.querySelector("input#email").value;
   const senha = document.querySelector("input#senha").value;
 
-  const dados = { email: email, senha: senha };
+  const dados = { email: email, password: senha };
 
   switch (acao) {
     case "logar":
