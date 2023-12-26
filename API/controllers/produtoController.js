@@ -52,17 +52,12 @@ class ProdutoController {
     }
     
     async editarProduto(req, res) {
-        const { id_peca } = req.params
-        const { novoNome, novaQuantidade, novoPreco, novaDescricao } = req.body;
+        const { nome, quantidade, preco, descricao, id_peca } = req.body;
         try {
-            await produtoModel.editarProduto(
-                novoNome,
-                novaQuantidade,
-                novoPreco,
-                novaDescricao,
-                id_peca
-        );
+
+            await produtoModel.editarProduto(nome, quantidade, preco, descricao, id_peca);
             res.status(200).send({ message: "Produto atualizado!" });
+
         } catch (error) {
             res.status(500).send({ message: `Erro ao editar produto - ${error}` });
         }

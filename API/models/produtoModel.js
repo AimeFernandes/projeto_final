@@ -40,8 +40,8 @@ class ProdutoModel  {
     
     async editarProduto(nome, quantidade, preco, descricao, id_peca) {
         const conexao = await conexaoBancoDeDados.conectar();
-        const comandoSql =
-            "UPDATE pecas SET nome = ($1), quantidade = ($2), preco = ($3), descricao = ($4) WHERE id_peca = ($5)";
+
+        const comandoSql = "UPDATE pecas SET nome = ($1), quantidade = ($2), preco = ($3), descricao = ($4) WHERE id_peca = ($5)";
         return await conexao.query(comandoSql, [
             nome,
             quantidade,
@@ -51,5 +51,6 @@ class ProdutoModel  {
         ]);
     }
 }
+
 
 module.exports = new ProdutoModel();

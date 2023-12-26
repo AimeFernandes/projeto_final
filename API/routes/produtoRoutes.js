@@ -8,7 +8,7 @@ routes
     .get("/buscarProduto/:id", produtoController.buscarProduto)
     .get("/buscarProdutoNome/:nome", produtoController.buscarProdutoNome)
     .post("/produtos", produtoController.addProduto) 
-    .put("/editarProduto/:id", produtoController.editarProduto)
+    .put("/editarProduto/", produtoController.editarProduto)
     .delete("/deletarProduto/:id", produtoController.deletarProduto);
 
 
