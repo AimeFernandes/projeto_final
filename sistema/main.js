@@ -68,8 +68,8 @@ async function exibirDados(data) {
                 <td>${dado.preco}</td>
                 <td>${dado.descricao}</td>
                 <td>${dado.quantidade}</td>
-                <td><i class="bi bi-pencil-square" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#editModal" onclick="preencherCampos('${dado.id}')"></i></td>
-                <td><i class="bi bi-trash" style="cursor: pointer" onclick="removerDados(${dado.id})"></i></td>
+                <td><i class="bi bi-pencil-square" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#editModal" onclick="preencherCampos('${dado.id_peca}')"></i></td>
+                <td><i class="bi bi-trash" style="cursor: pointer" onclick="removerDados(${dado.id_peca})"></i></td>
             </tr>`;
         });
     }
@@ -87,7 +87,6 @@ async function getDados(){
     } catch (error) {
         alert("Ocorreu um erro: "+ error)
     }
-
 }
 
 async function buscarDados() {
@@ -105,24 +104,26 @@ async function buscarDados() {
     } catch (error) {
         alert("Ocorreu um erro")
     }
-
 }
 
 async function removerDados(id){
-
+    console.log(id)
+    const id_peca = parseInt(id)    
     const modalRemover = new bootstrap.Modal('#modalRemover');
     modalRemover.show();
+
     const btnRemover = document.querySelector("#remover");
     btnRemover.addEventListener("click", async () => {
 
         try {
-            await fetch(baseUrl + "/deletarPeca/" + id, { method: "DELETE" });
+            await fetch(baseUrl + /deletarPeca/ + id_peca, { method: "DELETE" });
             modalRemover.hide();
-            exibirDados(data);
+            exibirDados();
+            getDados()
         } catch (error) {
             document.location.reload();
+            console.log(error)
         }
-
     });
 }
 
