@@ -5,5 +5,6 @@ const routes = new Router();
 
 routes
   .post("/cadastro", usuarioController.cadastrar)
+  .get("/listarUsers", usuarioController.listarUser)
 
 module.exports = routes;

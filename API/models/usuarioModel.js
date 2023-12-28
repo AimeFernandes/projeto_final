@@ -12,6 +12,13 @@ class UsuarioModel {
     const comandoSql = "INSERT INTO usuario (email, password) VALUES ($1, $2)";
     return await conexao.query(comandoSql, [email, passwordHash]);
   }
+
+  async listarUser() {
+    const conexao = await conexaoBancoDeDados.conectar();
+    const comandoSql = "SELECT * FROM usuario";
+    const listaUser = await conexao.query(comandoSql);
+    return listaUser.rows;
+  }
 }
 
 module.exports = new UsuarioModel();

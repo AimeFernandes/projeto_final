@@ -19,6 +19,16 @@ class UsuarioController {
       res.status(400).send({ message: `Erro ao cadastrar Usuário - ${error}` });
     }
   }
+
+  async listarUser(req, res) {
+    try {
+        const pecas = await usuarioModel.listarUser();
+        res.status(200).json(pecas);
+    } catch (error) {
+        res.status(500).send({ message: `Erro ao listar usuarios - ${error}` });
+    }
+}
+
 }
 
 module.exports = new UsuarioController();
