@@ -55,7 +55,7 @@ class PecaController {
         const { nome, preco, descricao, quantidade, id_peca } = req.body;
         try {
 
-            await pecaModel.editarPeca(nome, preco, descricao, id_peca, quantidade,);
+            await pecaModel.editarPeca(nome, preco, descricao, quantidade, id_peca);
             res.status(200).send({ message: "Peça atualizado!" });
 
         } catch (error) {
