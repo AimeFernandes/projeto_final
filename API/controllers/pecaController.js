@@ -52,7 +52,8 @@ class PecaController {
     }
     
     async editarPeca(req, res) {
-        const { nome, preco, descricao, quantidade, id_peca } = req.body;
+        const id_peca = parseInt(req.params.id);
+        const { nome, preco, descricao, quantidade } = req.body;
         try {
 
             await pecaModel.editarPeca(nome, preco, descricao, quantidade, id_peca);

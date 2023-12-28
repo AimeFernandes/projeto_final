@@ -42,13 +42,7 @@ class PecaModel  {
         const conexao = await conexaoBancoDeDados.conectar();
 
         const comandoSql = "UPDATE pecas SET nome = ($1), preco = ($2), descricao = ($3), quantidade = ($4) WHERE id_peca = ($5)";
-        return await conexao.query(comandoSql, [
-            nome,
-            preco,
-            descricao,
-            quantidade,
-            id_peca
-        ]);
+        return await conexao.query(comandoSql, [nome, preco, descricao, quantidade, id_peca]);
     }
 }
 
