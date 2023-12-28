@@ -154,14 +154,15 @@ function sair() {
         window.location.href = '../login.html';
 }
 
-async function editar() {
+async function editar(id_peca) {
+
     const novoNome = document.querySelector("#editNome").value;
     const novoPreco = document.querySelector("#editPreco").value;
     const novaDescricao = document.querySelector("#editDescricao").value;
     const novaQuantidade = document.querySelector("#editQuantidade").value;
 
     try {
-        const resposta = await fetch("http://localhost:3000/editarPeca", {
+        const resposta = await fetch(baseUrl + "/editarPeca/" + id_peca, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
