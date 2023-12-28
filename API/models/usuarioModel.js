@@ -19,6 +19,14 @@ class UsuarioModel {
     const listaUser = await conexao.query(comandoSql);
     return listaUser.rows;
   }
+
+  async deletarUsuario(id_usuario) {
+    const conexao = await conexaoBancoDeDados.conectar();
+    const comandoSql = "DELETE FROM usuario WHERE id_usuario = ($1)";
+    const resp = await conexao.query(comandoSql, [id_usuario]);
+    return resp;
+}
+
 }
 
 module.exports = new UsuarioModel();

@@ -27,6 +27,16 @@ class UsuarioController {
     } catch (error) {
         res.status(500).send({ message: `Erro ao listar usuarios - ${error}` });
     }
+  }
+
+  async deletarUsuario(req, res) {
+    try {
+        const id_usuario = parseInt(req.params.id);
+        const resp = await usuarioModel.deletarUsuario(id_usuario);
+        res.status(500).send({ message: "Usuário deletado com sucesso" });
+    } catch (error) {
+        res.status(500).send({ message: `Erro ao deletar usuário - ${error}` });
+    }
 }
 
 }

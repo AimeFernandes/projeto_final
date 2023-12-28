@@ -6,5 +6,6 @@ const routes = new Router();
 routes
   .post("/cadastro", usuarioController.cadastrar)
   .get("/listarUsers", usuarioController.listarUser)
-
+  .delete("/deletarUser/:id", usuarioController.deletarUsuario)
+  
 module.exports = routes;
