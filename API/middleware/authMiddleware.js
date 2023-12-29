@@ -9,7 +9,7 @@ const auth = async (req, res, next) => {
   try {
     const payload = jwt.verify(token, process.env.SECRET); 
 
-    const usuario = await usuarioModel.buscarPorId(payload.id);
+    const usuario = await usuarioModel.buscarUserPorId(payload.id);
     if (!usuario) {
       return res.status(401).json({ message: "Não autorizado" });
     }
