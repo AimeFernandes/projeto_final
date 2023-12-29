@@ -48,7 +48,7 @@ class PecaModel  {
     async diminuirQuantidade(id_peca) {
         const conexao = await conexaoBancoDeDados.conectar()
 
-        const comandoSql = "UPDATE pecas SET quantidade = quantidade - WHERE id_peca = ($1)"
+        const comandoSql = "UPDATE pecas SET quantidade = quantidade - 1 WHERE id_peca = ($1)"
         return await conexao.query(comandoSql, [id_peca])
     }
 
