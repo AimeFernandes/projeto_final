@@ -68,6 +68,7 @@ async function exibirDados(data) {
                 <td>${dado.preco}</td>
                 <td>${dado.descricao}</td>
                 <td>${dado.quantidade}</td>
+                <td><i class="bi bi-dash-square" style="cursor: pointer" onclick="diminuirQuantidade('${dado.id_peca}')"></i></td>
                 <td><i class="bi bi-pencil-square" style="cursor: pointer" onclick="preencherCampos('${dado.id_peca}')"></i></td>
                 <td><i class="bi bi-trash" style="cursor: pointer" onclick="removerDados(${dado.id_peca})"></i></td>
             </tr>`;
@@ -199,4 +200,8 @@ async function editar(id) {
             alert("Erro ao editar " + error);
         }
     })
+
+    // async function diminuirQuantidade(id){
+        
+    // }
 }
