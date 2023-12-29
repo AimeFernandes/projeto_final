@@ -68,7 +68,7 @@ async function exibirDados(data) {
                 <td>${dado.preco}</td>
                 <td>${dado.descricao}</td>
                 <td>${dado.quantidade}</td>
-                <td><i class="bi bi-dash-square" style="cursor: pointer" onclick="diminuirQuantidade('${dado.id_peca}')"></i></td>
+                <td><i class="bi bi-dash-square" style="cursor: pointer" onclick="diminuirQuantidade(${dado.id_peca})"></i></td>
                 <td><i class="bi bi-pencil-square" style="cursor: pointer" onclick="preencherCampos('${dado.id_peca}')"></i></td>
                 <td><i class="bi bi-trash" style="cursor: pointer" onclick="removerDados(${dado.id_peca})"></i></td>
             </tr>`;
@@ -123,7 +123,7 @@ async function removerDados(id){
             getDados()
         } catch (error) {
             document.location.reload();
-            console.log(error)
+            console.log("Erro ao remover peça: ", error)
         }
     });
 }
@@ -200,8 +200,29 @@ async function editar(id) {
             alert("Erro ao editar " + error);
         }
     })
+}
 
-    // async function diminuirQuantidade(id){
-        
-    // }
+async function diminuirQuantidade(id){
+    console.log("id", id)
+    const id_peca = parseInt(id)
+    console.log(id_peca)
+
+    const reduzirQuantidade = document.querySelector("#reduzirQuantidade");
+
+    reduzirQuantidade.addEventListener("click", async () =>{
+        try {
+            const resposta = await fetch(baseUrl + /diminuirQuantidade/ + id_peca, { 
+            method: "PUT" ,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({id_peca})
+                });
+
+            console.log("Essa é a resposta: ",resposta)
+            exibirDados();
+            getDados()
+        } catch (error) {
+            //document.location.reload();
+            console.log("Erro ao diminuir a quantidade: ", error)
+        }
+    })
 }
