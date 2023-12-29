@@ -20,6 +20,13 @@ class UsuarioModel {
     return listaUser.rows;
   }
 
+  async buscarUserPorId(id_peca) {
+    const conexao = await conexaoBancoDeDados.conectar();
+    const comandoSql = "SELECT * FROM usuario WHERE id_peca = ($1)";
+    const user = await conexao.query(comandoSql, [id_peca]);
+    return user.rows;
+}
+
   async deletarUsuario(id_usuario) {
     const conexao = await conexaoBancoDeDados.conectar();
     const comandoSql = "DELETE FROM usuario WHERE id_usuario = ($1)";

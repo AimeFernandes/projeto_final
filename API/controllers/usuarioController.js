@@ -29,6 +29,17 @@ class UsuarioController {
     }
   }
 
+  async buscarUserPorId(req, res) {
+    try {
+        const id = parseInt(req.params.id)
+        const user = await usuarioModel.buscarUserPorId(id);
+        console.log(user)
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).send({ message: `Erro ao buscar usuário - ${error}` });
+    }
+}
+
   async deletarUsuario(req, res) {
     try {
         const id_usuario = parseInt(req.params.id);
@@ -37,7 +48,7 @@ class UsuarioController {
     } catch (error) {
         res.status(500).send({ message: `Erro ao deletar usuário - ${error}` });
     }
-}
+  }
 
 }
 
