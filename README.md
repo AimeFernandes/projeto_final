@@ -37,7 +37,6 @@
   | RF04 | listarPecas( ) | Os usuários administrador poderão visualizar as peças em estoque e suas informações, tais como nome, preço, quantidade e descrição |
   | RF05 | buscarPecaNome( ) | Os usuários administrador e funcionário poderão buscar peças no estoque a partir de seu nome |
   | RF06 | addPeca( ) | O usuário administrador poderá adicionar novas peças ao estoque |
-  | RF06 | addPeca( ) | O usuário administrador poderá adicionar novas peças ao estoque |
   | RF07 | deletarPeca( ) | O usuário administrador poderá deletar peças do estoque |
   | RF08 | editarPeca( ) | O usuário administrador poderá editar os dados das peças do estoque |
   | RF09 | reduzirEstoque( ) | Os usuários administrador e funcionário poderão reduzir manualmente através de um botão a quantidade de determinada peça no estoque |
