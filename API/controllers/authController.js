@@ -4,39 +4,39 @@ const authModel = require('../models/authModel.js');
 class AuthController {
   async logar(req, res) {
     const { email, password } = req.body;
-    if (!email) {
-      return res
-        .status(400)
-        .send({ login: false, message: "Digite seu email" });
+
+    if (!email || !password) {
+      return res.status(400).send({ login: false, message: "Email e senha são obrigatórios" });
     }
-    if (!password) {
-      return res
-        .status(400)
-        .send({ login: false, message: "Digite sua senha" });
-    }
+
     try {
-      const usuario = await authModel.logar(email, password);
-      if (usuario.length == 0) {
-        return res
-          .status(404)
-          .send({ login: false, message: "Não Autorizado" });
+      const resultadoLogin = await authModel.logar(email, password);
+
+      if (!resultadoLogin.success) {
+        return res.status(404).send({ login: false, message: resultadoLogin.message });
       }
+
+      console.log("Esse é o resultado do login ", resultadoLogin)
+
+      const { id_usuario, email: usuarioEmail, password: usuarioPassword } = resultadoLogin.usuario;
+
       const token = jwt.sign(
         {
-          id: usuario[0].id_usuario,
-          email: usuario[0].email,
-          password: usuario[0].password
+          id_usuario,
+          email: usuarioEmail,
+          password: usuarioPassword
         },
         `${process.env.SECRET}`,
         {
           expiresIn: "1h",
         }
       );
-      return res.status(200).send({ login: true, token: token });
+
+      console.log("Esse é o token: ", token)
+      return res.status(200).send({ login: true, token });
     } catch (error) {
-      return res
-        .status(404)
-        .send({ login: false, message: `Erro ao logar - ${error}` });
+      console.error("Erro ao logar:", error);
+      return res.status(500).send({ login: false, message: "Erro interno ao tentar logar" });
     }
   }
 }
