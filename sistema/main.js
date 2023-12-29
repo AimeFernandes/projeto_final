@@ -68,7 +68,7 @@ async function exibirDados(data) {
                 <td>${dado.preco}</td>
                 <td>${dado.descricao}</td>
                 <td>${dado.quantidade}</td>
-                <td><i class="bi bi-pencil-square" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#editModal" onclick="preencherCampos('${dado.id_peca}')"></i></td>
+                <td><i class="bi bi-pencil-square" style="cursor: pointer" onclick="preencherCampos('${dado.id_peca}')"></i></td>
                 <td><i class="bi bi-trash" style="cursor: pointer" onclick="removerDados(${dado.id_peca})"></i></td>
             </tr>`;
         });
@@ -144,6 +144,16 @@ async function preencherCampos(idPeca) {
         editPreco.value = data[0].preco;
         editDescricao.value = data[0].descricao;
         editQuantidade.value = data[0].quantidade;
+
+        const modalEditar = new bootstrap.Modal('#editModal')
+        modalEditar.show()
+
+        editar(id)
+
+        modalEditar.hide()
+        exibirDados()
+        getDados()
+
     } catch (error) {
         alert("Ocorreu um erro " + error);
     }
@@ -154,31 +164,39 @@ function sair() {
         window.location.href = '../login.html';
 }
 
-async function editar(id_peca) {
+async function editar(id) {
+    console.log("id", id)
+    const id_peca = parseInt(id)
+    console.log(id_peca)
+    const editar = document.querySelector("#editar")
 
-    const novoNome = document.querySelector("#editNome").value;
-    const novoPreco = document.querySelector("#editPreco").value;
-    const novaDescricao = document.querySelector("#editDescricao").value;
-    const novaQuantidade = document.querySelector("#editQuantidade").value;
+    editar.addEventListener("click", async () => {
+        const novoNome = document.querySelector("#editNome").value;
+        const novoPreco = document.querySelector("#editPreco").value;
+        const novaDescricao = document.querySelector("#editDescricao").value;
+        const novaQuantidade = document.querySelector("#editQuantidade").value;
 
-    try {
-        const resposta = await fetch(baseUrl + "/editarPeca/" + id_peca, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            novoNome,
-            novoPreco,
-            novaDescricao,
-            novaQuantidade,
-            id: idDoPecaParaEditar,
-        }),
-        });
-        const resp = await resposta.json();
-        alert(resp.message);
-        location.reload();
-    } catch (error) {
-        alert("Erro ao editar " + error);
-    }
+        const dados = {
+            nome: novoNome,
+            quantidade: novaQuantidade,
+            preco: novoPreco,
+            descricao: novaDescricao
+        }
+        
+        console.log(dados)
+
+        try {
+            const resposta = await fetch(baseUrl + "/editarPeca/" + id_peca, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(dados),
+            });
+
+            const resp = await resposta.json();
+            alert(resp.message);
+            location.reload();
+        } catch (error) {
+            alert("Erro ao editar " + error);
+        }
+    })
 }
