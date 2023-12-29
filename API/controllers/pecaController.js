@@ -63,6 +63,17 @@ class PecaController {
             res.status(500).send({ message: `Erro ao editar peça - ${error}` });
         }
     }
+
+    async diminuirQuantidade(req, res){
+        const id_peca = parseInt(req.params.id);
+
+        try{
+            await pecaModel.diminuirQuantidade(id_peca);
+            res.status(200).send({ message: "Peça reduzida no estoque!" });
+        }catch(error){
+            res.status(500).send({ message: `Erro ao reduzir peça no estoque - ${error}` });
+        }
+    }
 }
 
 module.exports = new PecaController();

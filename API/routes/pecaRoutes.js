@@ -9,6 +9,7 @@ routes
     .get("/buscarPecaPorNome/:nome", pecaController.buscarPecaPorNome)
     .post("/addPeca", pecaController.addPeca) 
     .put("/editarPeca/:id", pecaController.editarPeca)
-    .delete("/deletarPeca/:id", pecaController.deletarPeca);
+    .delete("/deletarPeca/:id", pecaController.deletarPeca)
+    .put("/diminuirQuantidade/:id", pecaController.diminuirQuantidade);
 
 module.exports = routes;
