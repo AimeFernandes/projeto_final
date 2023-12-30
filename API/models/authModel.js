@@ -30,7 +30,7 @@ class AuthModel {
     const comandoSql = "SELECT * FROM usuario WHERE email = $1";
     const usuario = await conexao.query(comandoSql, [email]);
     console.log("Usuário retornado: ", usuario)
-
+    
     return usuario.rows[0];
   }
 }

@@ -11,14 +11,14 @@ class AuthController {
 
     try {
       const resultadoLogin = await authModel.logar(email, password);
-
-      if (!resultadoLogin.success) {
-        return res.status(404).send({ login: false, message: resultadoLogin.message });
+      console.log(resultadoLogin)
+      if (resultadoLogin  === undefined || resultadoLogin === null) {
+        return res.status(404).send({ login: false, message: "Email ou senha incorreto." });
       }
 
       console.log("Esse é o resultado do login ", resultadoLogin)
 
-      const { id_usuario, email: usuarioEmail, password: usuarioPassword } = resultadoLogin.usuario;
+      const { id_usuario, email: usuarioEmail, password: usuarioPassword } = resultadoLogin;
 
       const token = jwt.sign(
         {
