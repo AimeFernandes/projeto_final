@@ -207,22 +207,19 @@ async function diminuirQuantidade(id){
     const id_peca = parseInt(id)
     console.log(id_peca)
 
-    const reduzirQuantidade = document.querySelector("#reduzirQuantidade");
+    try {
+        const resposta = await fetch(baseUrl + /diminuirQuantidade/ + id_peca, { 
+        method: "PUT" ,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({id_peca})
+            });
 
-    reduzirQuantidade.addEventListener("click", async () =>{
-        try {
-            const resposta = await fetch(baseUrl + /diminuirQuantidade/ + id_peca, { 
-            method: "PUT" ,
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({id_peca})
-                });
+        console.log("Essa é a resposta: ",resposta)
+        exibirDados();
+        getDados()
+    } catch (error) {
+        //document.location.reload();
+        console.log("Erro ao diminuir a quantidade: ", error)
+    }
 
-            console.log("Essa é a resposta: ",resposta)
-            exibirDados();
-            getDados()
-        } catch (error) {
-            //document.location.reload();
-            console.log("Erro ao diminuir a quantidade: ", error)
-        }
-    })
 }
