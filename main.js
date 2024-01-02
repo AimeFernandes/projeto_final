@@ -1,3 +1,5 @@
+const baseUrl = "http://localhost:3000"
+
 async function enviar(acao) {
   limparToken();
   const email = document.querySelector("input#email").value;
@@ -8,7 +10,7 @@ async function enviar(acao) {
   switch (acao) {
     case "logar":
       try {
-        const respostaLogin = await fetch("http://localhost:3000/login", {
+        const respostaLogin = await fetch(baseUrl + "/login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           mode: "cors",
@@ -29,7 +31,7 @@ async function enviar(acao) {
       break;
       case "logarFuncionario":
       try {
-        const respostaLogin = await fetch("http://localhost:3000/login", {
+        const respostaLogin = await fetch(baseUrl + "/login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           mode: "cors",
@@ -49,7 +51,7 @@ async function enviar(acao) {
       }
       break;
     case "cadastrar":
-      const respostaCadastro = await fetch("http://localhost:3000/cadastro", {
+      const respostaCadastro = await fetch(baseUrl + "/cadastro", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         mode: "cors",

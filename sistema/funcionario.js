@@ -105,26 +105,6 @@ async function buscarDados() {
     }
 }
 
-async function removerDados(id){
-    console.log(id)
-    const id_peca = parseInt(id)    
-    const modalRemover = new bootstrap.Modal('#modalRemover');
-    modalRemover.show();
-
-    const btnRemover = document.querySelector("#remover");
-    btnRemover.addEventListener("click", async () => {
-
-        try {
-            await fetch(baseUrl + /deletarPeca/ + id_peca, { method: "DELETE" });
-            modalRemover.hide();
-            exibirDados();
-            getDados()
-        } catch (error) {
-            document.location.reload();
-            console.log("Erro ao remover peça: ", error)
-        }
-    });
-}
 
 let idDoPecaParaEditar;
 
@@ -161,43 +141,6 @@ async function preencherCampos(idPeca) {
 function sair() {
         localStorage.clear();
         window.location.href = '../login.html';
-}
-
-async function editar(id) {
-    console.log("id", id)
-    const id_peca = parseInt(id)
-    console.log(id_peca)
-    const editar = document.querySelector("#editar")
-
-    editar.addEventListener("click", async () => {
-        const novoNome = document.querySelector("#editNome").value;
-        const novoPreco = document.querySelector("#editPreco").value;
-        const novaDescricao = document.querySelector("#editDescricao").value;
-        const novaQuantidade = document.querySelector("#editQuantidade").value;
-
-        const dados = {
-            nome: novoNome,
-            quantidade: novaQuantidade,
-            preco: novoPreco,
-            descricao: novaDescricao
-        }
-        
-        console.log(dados)
-
-        try {
-            const resposta = await fetch(baseUrl + "/editarPeca/" + id_peca, {
-            method: "PUT",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(dados),
-            });
-
-            const resp = await resposta.json();
-            alert(resp.message);
-            location.reload();
-        } catch (error) {
-            alert("Erro ao editar " + error);
-        }
-    })
 }
 
 async function diminuirQuantidade(id){

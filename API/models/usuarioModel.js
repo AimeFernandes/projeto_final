@@ -25,14 +25,28 @@ class UsuarioModel {
     const comandoSql = "SELECT * FROM usuario WHERE id_peca = ($1)";
     const user = await conexao.query(comandoSql, [id_peca]);
     return user.rows;
-}
+  }
 
   async deletarUsuario(id_usuario) {
     const conexao = await conexaoBancoDeDados.conectar();
     const comandoSql = "DELETE FROM usuario WHERE id_usuario = ($1)";
     const resp = await conexao.query(comandoSql, [id_usuario]);
     return resp;
-}
+  }
+
+  async cadastrarAdministrador(id_usuario, permissaoDeAlteracoes) {
+    const conexao = await conexaoBancoDeDados.conectar();
+    
+    const comandoSql = "INSERT INTO administrador (id_usuario, permissaoDeAlteracoes) VALUES ($1, $2)";
+    return await conexao.query(comandoSql, [id_usuario, permissaoDeAlteracoes]);
+  }
+
+  async listarADM() {
+    const conexao = await conexaoBancoDeDados.conectar();
+    const comandoSql = "SELECT * FROM administrador";
+    const listaUser = await conexao.query(comandoSql);
+    return listaUser.rows;
+  }
 
 }
 
