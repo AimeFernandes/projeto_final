@@ -10,7 +10,7 @@ body {
   body {
     margin: 0;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f0f0;
+    background: linear-gradient(90deg, #0c0c0c, #737373);;
   }
   
   .overlay {
@@ -64,6 +64,8 @@ body {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    width: 500px;
   }
   
   .login-form {
@@ -153,6 +155,7 @@ body {
     animation: progress 5s linear;
   }
   
+
   @keyframes progress {
     0% {
       width: 100%;
@@ -160,4 +163,20 @@ body {
     100% {
       width: 0;
     }
+  }
+
+  .botao-arredondado {
+    padding: 10px;
+    border-radius: 5px; /* Ajuste o valor conforme necessário para tornar o botão mais ou menos arredondado */
+    cursor: pointer;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    width: 200px;
+  }
+
+  .img{
+  position: absolute; 
+  top: 100px; 
+  margin-left: 20px; 
   }
