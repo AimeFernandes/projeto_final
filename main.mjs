@@ -1,4 +1,7 @@
 const baseUrl = "http://localhost:3000"
+//const jwt = require('jsonwebtoken');
+import { decode } from "../node_modules/jsonwebtoken";
+
 
 async function enviar(acao) {
   limparToken();
@@ -6,23 +9,29 @@ async function enviar(acao) {
   const senha = document.querySelector("input#senha").value;
 
   const dados = { email: email, password: senha };
-
+  //const dadosADM = { email: "admin@gmail.com", password: "1234" };
   switch (acao) {
     case "logar":
       try {
-        const respostaLogin = await fetch(baseUrl + "/login", {
+        const respostaLogin = await fetch(baseUrl + "/loginADM", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           mode: "cors",
           body: JSON.stringify(dados),
         });
         const retornoApi = await respostaLogin.json();
+        console.log("Essa é a repostado login: ", respostaLogin)
         if (retornoApi.login === true) {
           const token = retornoApi.token;
           localStorage.setItem("token", token);
 
-          window.location.href = "./sistema/index.html";
-        } else {
+          const decodedToken = decode(token)
+          if(decodedToken.isAdmin){
+            window.location.href = "./sistema/index.html";
+          } else{
+            mostrarMessage("Acesso não autorizado.");
+          }
+          } else {
           mostrarMessage(retornoApi.message);
         }
       } catch (error) {
@@ -63,6 +72,9 @@ async function enviar(acao) {
       break;
   }
 }
+
+export default enviar()
+
 function mostrarMessage(message) {
   const card = document.getElementById("alerta");
   const texto = document.getElementById("alert-text");

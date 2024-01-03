@@ -87,7 +87,7 @@
   CREATE TABLE Usuario (
       id_usuario SERIAL PRIMARY KEY,
       email VARCHAR(50) NOT NULL UNIQUE,
-      password VARCHAR(100) NOT NULL
+      password VARCHAR(100) NOT NULL,
   );
   
   
