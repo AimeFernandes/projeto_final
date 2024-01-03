@@ -87,7 +87,7 @@
   CREATE TABLE Usuario (
       id_usuario SERIAL PRIMARY KEY,
       email VARCHAR(50) NOT NULL UNIQUE,
-      password VARCHAR(50) NOT NULL
+      password VARCHAR(100) NOT NULL
   );
   
   
@@ -101,13 +101,13 @@
   
   CREATE TABLE Administrador (
       id_administrador SERIAL PRIMARY KEY,
-      id_usuario INT NOT NULL REFERENCES Usuario(id_usuario),
-      permissaoDeAlteracoes NOT NULL BOOLEAN
+      id_usuario INT REFERENCES Usuario(id_usuario) NOT NULL,
+      permissaoDeAlteracoes BOOLEAN NOT NULL
   );
   
   CREATE TABLE Funcionario (
       id_funcionario SERIAL PRIMARY KEY,
-      id_usuario INT NOT NULL REFERENCES Usuario(id_usuario),
-      permissaoDeBaixa NOT NULL BOOLEAN
+      id_usuario INT REFERENCES Usuario(id_usuario) NOT NULL,
+      permissaoDeBaixa BOOLEAN NOT NULL
   );
   ```
