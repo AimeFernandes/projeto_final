@@ -1,7 +1,4 @@
 const baseUrl = "http://localhost:3000"
-//const jwt = require('jsonwebtoken');
-import { decode } from "../node_modules/jsonwebtoken";
-
 
 async function enviar(acao) {
   limparToken();
@@ -25,7 +22,7 @@ async function enviar(acao) {
           const token = retornoApi.token;
           localStorage.setItem("token", token);
 
-          const decodedToken = decode(token)
+          const decodedToken = parseJwt(token)
           if(decodedToken.isAdmin){
             window.location.href = "./sistema/index.html";
           } else{
@@ -73,7 +70,16 @@ async function enviar(acao) {
   }
 }
 
-export default enviar()
+
+function parseJwt (token) {
+  var base64Url = token.split('.')[1];
+  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+
+  return JSON.parse(jsonPayload);
+}
 
 function mostrarMessage(message) {
   const card = document.getElementById("alerta");
