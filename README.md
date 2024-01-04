@@ -102,6 +102,7 @@
 
   <h3> Conexão do banco de dados <h3>
 
+    Criar um arquivo .env na raiz do projeto com essas variáveis de acordo com seu banco de dados.
    - PGUSER=
    - PGHOST=
    - PGPASSWORD=
