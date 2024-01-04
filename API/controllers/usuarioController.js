@@ -50,33 +50,6 @@ class UsuarioController {
     }
   }
 
-  async cadastrarAdministrador(req, res) {
-    const { id_usuario, permissaoDeAlteracoes } = req.body;
-    if (!id_usuario) {
-      return res.status(400).send({ message: "id do usuario invalido" });
-    }
-    if (!permissaoDeAlteracoes) {
-      return res.status(400).send({ message: "Nivel de Permissão não concebido" });
-    }
-    try {
-      const resultado = await usuarioModel.cadastrarAdministrador(id_usuario, permissaoDeAlteracoes);
-      return res
-        .status(201)
-        .send({ message: "Administrador cadastrado com sucesso" });
-    } catch (error) {
-      res.status(400).send({ message: `Erro ao cadastrar administrador - ${error}` });
-    }
-  }
-
-  async listarADM(req, res) {
-    try {
-        const adm = await usuarioModel.listarADM();
-        res.status(200).json(adm);
-    } catch (error) {
-        res.status(500).send({ message: `Erro ao listar o adm - ${error}` });
-    }
-  }
-
 }
 
 module.exports = new UsuarioController();

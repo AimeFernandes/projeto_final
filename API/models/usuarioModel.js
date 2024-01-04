@@ -34,20 +34,6 @@ class UsuarioModel {
     return resp;
   }
 
-  async cadastrarAdministrador(id_usuario, permissaoDeAlteracoes) {
-    const conexao = await conexaoBancoDeDados.conectar();
-    
-    const comandoSql = "INSERT INTO administrador (id_usuario, permissaoDeAlteracoes) VALUES ($1, $2)";
-    return await conexao.query(comandoSql, [id_usuario, permissaoDeAlteracoes]);
-  }
-
-  async listarADM() {
-    const conexao = await conexaoBancoDeDados.conectar();
-    const comandoSql = "SELECT * FROM administrador";
-    const listaUser = await conexao.query(comandoSql);
-    return listaUser.rows;
-  }
-
 }
 
 module.exports = new UsuarioModel();
