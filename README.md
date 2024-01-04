@@ -98,16 +98,12 @@
       preco DECIMAL(10,2) NOT NULL,
       descricao TEXT
   ); 
-  
-  CREATE TABLE Administrador (
-      id_administrador SERIAL PRIMARY KEY,
-      id_usuario INT REFERENCES Usuario(id_usuario) NOT NULL,
-      permissaoDeAlteracoes BOOLEAN NOT NULL
-  );
-  
-  CREATE TABLE Funcionario (
-      id_funcionario SERIAL PRIMARY KEY,
-      id_usuario INT REFERENCES Usuario(id_usuario) NOT NULL,
-      permissaoDeBaixa BOOLEAN NOT NULL
-  );
   ```
+
+  <h3> Conexão do banco de dados <h3>
+
+   - PGUSER=
+   - PGHOST=
+   - PGPASSWORD=
+   - PGDATABASE=
+   - PGPORT=
